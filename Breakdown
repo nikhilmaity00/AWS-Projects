@@ -1,0 +1,19 @@
+https://aws.amazon.com/getting-started/hands-on/visualize-data-amazon-rds-sql-server-using-amazon-quicksight/?ref=gsrchandson&id=itprohandson
+
+>	Create Database in the Amazon RDS Console(Microsoft SQL Server)
+>	On the RDS Console, change the database to be publically available
+>	While the database is being selected, select the "Connectivity and security" tab and select the VPC security group for this Database.
+>	We need to modify the inbound rules so that we'll be able to connect via TCP from the source machine, which will be our machine in this case. 
+>	Download Microsoft SQL Server Client on our machine.
+>	Once installed it will ask to connect to a server, which will be our RDS.
+>	Copy the endpoint and port from the RDS Console and paste it into the server name
+>	Enter the login credentials which was used to create the database, then click connect
+>	Create a Sample database then choose "New Query"
+>	Once the database is created the RDS DB no longer needs to be public, revert the changes made in the Connectivity section of the DB on RDS console
+>	Now we need to create a Security Group for Amazon Quick site to be able to access the RDS DB, copy the VPC ID for the RDS DB
+>	Create a new Security Group "RDS SecGP", Disc "for QS" create, copy Securit group ID
+>	Create a new Security Group "QS SecGP", Disc "for RDS" create.
+>	Create a new inbound rule, Type "All traffic", Source "Custom" paste the RDS SecGP ID and create
+>	Copy the Security Group ID of "QS SecGP" which will be needed for QuickSight
+>	Open Security Group "RDS SecGP" and edit the inbound rules for DB input
+>	For inbound rules select type "MSSQL", Source "Custom", and enter the 
